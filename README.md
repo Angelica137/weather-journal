@@ -1,1 +1,1 @@
-# weather-journal
+# Weather Journal
