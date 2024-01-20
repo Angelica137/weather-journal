@@ -1,0 +1,23 @@
+{
+  "name": "weather-journal",
+  "version": "1.0.0",
+  "description": "weather-journal",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angelica137/weather-journal.git"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "Angelica Beristain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Angelica137/weather-journal/issues"
+  },
+  "homepage": "https://github.com/Angelica137/weather-journal#readme"
+}
