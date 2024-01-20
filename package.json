@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Angelica137/weather-journal/issues"
   },
-  "homepage": "https://github.com/Angelica137/weather-journal#readme"
+  "homepage": "https://github.com/Angelica137/weather-journal#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
