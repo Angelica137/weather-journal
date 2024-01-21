@@ -51,8 +51,9 @@ app.get("/getWeather", async (req, res) => {
 });
 
 // POST route that adds incoming data to projectData
-app.post("addData", (req, res) => {
-  projectData = req.body;
+app.post("/addData", (req, res) => {
+  projectData = { ...projectData, ...req.body };
+  console.log("Data added to projectData", projectData);
   res.send({ message: "Data received", projectData });
 });
 
