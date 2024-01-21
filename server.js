@@ -20,6 +20,17 @@ app.use(cors());
 // Initialise the main project folder
 app.use(express.static("website"));
 
+// GET route to return projectData object
+app.get("/data", (req, res) => {
+  res.send(projectData);
+});
+
+// POST route that adds incoming data to projectData
+app.post("addData", (req, res) => {
+  projectData = req.body;
+  res.send({ message: "Data received", projectData });
+});
+
 // Setup Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
