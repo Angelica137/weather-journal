@@ -4,17 +4,52 @@ const getWeatherData = async (zipCode) => {
   const url = `/getWeather?zip=${zipCode}`;
 
   try {
-    // Fetch teh data from your server
+    // Fetch the data from your server
     const response = await fetch(url);
 
     // Convert the response to JSON
-    const data = await response.json();
+    const weatherData = await response.json();
+
+    // extract the data we need
+    const dataToPost = {
+      temperature: weatherData.main.temp,
+      date: new Date(),
+      userResponse: document.getElementById("feelings").value,
+    };
+
+    // Post the data to the server
+    await postData("/addData", dataToPost);
 
     // use the data
-    console.log(data);
-    document.getElementById("weatherData").innerHTML = JSON.stringify(data);
+    console.log(weatherData);
+
+    // update the UI with the data
+    document.getElementById("weatherData").innerHTML = `
+		Temperature: ${dataToPost.temperature},
+		Date: ${dataToPost.date},
+		Your Feelings: ${dataToPost.userResponse}`;
+    //JSON.stringify(weatherData);
   } catch (error) {
     console.error("Error", error);
+  }
+};
+
+// POST function - post data to server
+const postData = async (url = "", data = {}) => {
+  const response = await fetch(url, {
+    method: `POST`,
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  try {
+    const newData = await response.json();
+    return newData;
+  } catch (error) {
+    console.log("Error", error);
   }
 };
 
