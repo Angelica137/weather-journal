@@ -2,6 +2,7 @@
   "name": "weather-journal",
   "version": "1.0.0",
   "description": "weather-journal",
+	"type": "module",
   "main": "server.js",
   "scripts": {
     "test": "test",
@@ -23,6 +24,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
   }
 }

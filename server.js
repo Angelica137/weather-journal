@@ -3,14 +3,16 @@ let projectData = {};
 
 // OpenWeatherMap API credentials - instructions said to put in
 // app.js but I ignored that
-const baseURL =
-  "https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}";
+const baseUrl = "https://api.openweathermap.org/data/2.5/weather?zip=";
 const apiKey = "1809b88eb7c360b423179d84b54efd810";
 
 // Require Express to run server and routes
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+// const express = require("express"); - got err so replaced
+// all requires with import
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import fetch from "node-fetch";
 
 // Start up an instance of app
 const app = express();
@@ -29,6 +31,23 @@ app.use(express.static("website"));
 // GET route to return projectData object
 app.get("/data", (req, res) => {
   res.send(projectData);
+});
+
+app.get("/getWeather", async (req, res) => {
+  const zipCode = req.query.zip;
+  const apiUrl = `${baseUrl}${zipCode}&appid=${apiKey}&units=metric`;
+
+  try {
+    const apiResponse = await fetch(apiUrl);
+    const apiData = await apiResponse.json();
+
+    console.log(`Fetchin ${apiUrl}`);
+
+    res.send(apiData);
+  } catch (error) {
+    console.error("Error", error);
+    res.status(500).send({ error: "Failed to fetch data" });
+  }
 });
 
 // POST route that adds incoming data to projectData
