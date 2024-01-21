@@ -25,5 +25,3 @@ document.getElementById("generate").addEventListener("click", () => {
   const zipCode = document.getElementById("zipCode").value;
   getWeatherData(zipCode);
 });
-
-getWeatherData("94040");
