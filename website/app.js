@@ -28,7 +28,6 @@ const getWeatherData = async (zipCode) => {
 		Temperature: ${dataToPost.temperature},
 		Date: ${dataToPost.date},
 		Your Feelings: ${dataToPost.userResponse}`;
-    //JSON.stringify(weatherData);
   } catch (error) {
     console.error("Error", error);
   }
