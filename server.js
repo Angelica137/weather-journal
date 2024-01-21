@@ -4,7 +4,7 @@ let projectData = {};
 // OpenWeatherMap API credentials - instructions said to put in
 // app.js but I ignored that
 const baseUrl = "https://api.openweathermap.org/data/2.5/weather?zip=";
-const apiKey = "1809b88eb7c360b423179d84b54efd810";
+const apiKey = "1809b88eb7c360b423179d84b54efd81";
 
 // Require Express to run server and routes
 // const express = require("express"); - got err so replaced
