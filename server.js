@@ -1,6 +1,12 @@
 // Set up empty JS object to act as endpoint for all routes
 let projectData = {};
 
+// OpenWeatherMap API credentials - instructions said to put in
+// app.js but I ignored that
+const baseURL =
+  "https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}";
+const apiKey = "1809b88eb7c360b423179d84b54efd810";
+
 // Require Express to run server and routes
 const express = require("express");
 const bodyParser = require("body-parser");
