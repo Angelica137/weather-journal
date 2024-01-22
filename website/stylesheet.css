@@ -1,0 +1,19 @@
+.form {
+	display: flex;
+	width: 250px;
+	flex-direction: column;
+	margin-bottom: 8px;
+}
+
+label {
+	margin-bottom: 4px;
+}
+
+input {
+	padding: 8px;
+	margin-bottom: 4px;
+}
+
+button {
+	padding: 8px;
+}
