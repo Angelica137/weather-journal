@@ -8,14 +8,34 @@
     <!--CSS will live here-->
   </head>
   <body>
-    <h1>Hi, Angelica 👋</h1>
-    <p>Enter your zip <code></code></p>
-    <input type="text" name="zipCode" id="zipCode" />
-    <p>Weather</p>
-    <p>How are you feeling today?</p>
-    <input type="text" name="feelings" id="feelings" />
-    <div id="weatherData"></div>
-    <button id="generate" type="submit">Generate</button>
+    <div id="myapp">
+      <div class="header">
+        <h1>Hi, Angelica 👋</h1>
+      </div>
+
+      <div class="form">
+        <label for="zipCode">Enter your zip code</label>
+        <input type="text" name="zipCode" id="zipCode" />
+      </div>
+      <div class="form">
+        <label>How are you feeling today?</label>
+        <input type="text" name="feelings" id="feelings" />
+      </div>
+      <div class="form">
+        <button id="generate" type="submit">Generate</button>
+      </div>
+
+      <div id="weatherData"></div>
+
+      <div class="holder entry">
+        <div class="title">Most Recent Entry</div>
+        <div id="entryHolder">
+          <div id="date"></div>
+          <div id="temp"></div>
+          <div id="content"></div>
+        </div>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
