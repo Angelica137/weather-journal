@@ -10,7 +10,6 @@ const apiKey = "1809b88eb7c360b423179d84b54efd81";
 // const express = require("express"); - got err so replaced
 // all requires with import
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
 import fetch from "node-fetch";
 
@@ -19,8 +18,7 @@ const app = express();
 
 /* Middlewear */
 // Configure express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// I removed these lines because they were not needed
 
 // Cors for cross origin allowance
 app.use(cors());
