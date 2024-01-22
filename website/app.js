@@ -20,14 +20,8 @@ const getWeatherData = async (zipCode) => {
     // Post the data to the server
     await postData("/addData", dataToPost);
 
-    // use the data
-    console.log(weatherData);
-
     // update the UI with the data
-    document.getElementById("weatherData").innerHTML = `
-		Temperature: ${dataToPost.temperature},
-		Date: ${dataToPost.date},
-		Your Feelings: ${dataToPost.userResponse}`;
+    updateUI();
   } catch (error) {
     console.error("Error", error);
   }
@@ -47,6 +41,25 @@ const postData = async (url = "", data = {}) => {
   try {
     const newData = await response.json();
     return newData;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+
+// Create async function to upda the UI
+const updateUI = async () => {
+  try {
+    const request = await fetch("/data");
+    const allData = await request.json();
+
+    // update html
+    document.getElementById("date").innerHTML = `Date: ${allData.date}`;
+    document.getElementById(
+      "temp"
+    ).innerHTML = `Temperature: ${allData.temperature}`;
+    document.getElementById(
+      "content"
+    ).innerHTML = `Feelings: ${allData.userResponse}`;
   } catch (error) {
     console.log("Error", error);
   }

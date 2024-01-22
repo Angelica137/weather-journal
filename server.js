@@ -21,6 +21,8 @@ const app = express();
 // I removed these lines because they were not needed
 
 // Cors for cross origin allowance
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Initialise the main project folder
